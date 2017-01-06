@@ -1,0 +1,25 @@
+#ifndef _GRAPHICS_H_
+#define _GRAPHICS_H_
+
+class CallbackBase {
+    public:
+        virtual void CallbackResult() = 0;
+        virtual void CallbackNotNeed() = 0;
+};
+
+class Graphics {
+    public:
+        Graphics(CallbackBase*);
+        ~Graphics();
+
+        void drawLine(int x0, int y0, int x1, int y1);
+        void drawCircle(int x0, int y0, int r);
+
+        void drawRectangle(int x0, int y0, int x1, int y1);
+    private:
+        class Impl;
+        Impl* impl;
+};
+
+void start_thread();
+#endif
