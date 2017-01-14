@@ -9,7 +9,10 @@ using namespace std;
 class Picture {
     public:
         Picture(string name):_grs(),_name(name) {
+            //此处构造函数中注册回调使用this指针的方式线程不安全，仅为演示用，
+            //正常应使用二段式构造
             //_grs.setResultCallback(boost::bind(&Picture::onResultCallback, this));
+            //仅替换boost::bind为fastdelegate::MakeDelegate，使用上完全一样
             _grs.setResultCallback(fastdelegate::MakeDelegate(this, &Picture::onResultCallback));  // fastdelegate
         }
         void drawLollipop() {

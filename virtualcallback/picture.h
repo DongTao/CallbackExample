@@ -20,6 +20,7 @@ class Picture {
             _grs->drawCircle(0, 6, 3);
             _grs->drawLine(0, 3, 0, 0);
         }
+        //跟cstyle方案一样，对外暴露回调函数，调用结果依赖外部类通知
         void onCallbackResult() {
             cout << "Picture " << _name << " result call back" << endl;
         }
