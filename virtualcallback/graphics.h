@@ -3,6 +3,7 @@
 
 class CallbackBase {
     public:
+        virtual ~CallbackBase() {}
         virtual void CallbackResult() = 0;
         virtual void CallbackNotNeed() = 0;
 };

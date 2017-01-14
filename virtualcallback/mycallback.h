@@ -14,6 +14,7 @@ class Picture;
 class MyCallback : public CallbackBase {
     public:
         MyCallback(Picture* pic):_pic(pic) {}
+        virtual ~MyCallback() {}
         void CallbackResult();
         void CallbackNotNeed();
     private:
