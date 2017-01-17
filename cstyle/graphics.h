@@ -3,7 +3,7 @@
 
 #include <string>
 #include <callback.h>
-#include <boost/noncopyable.hpp>
+#include <boost/shared_ptr.hpp>
 using namespace std;
 
 struct ResultCallBackEvent {
@@ -16,7 +16,7 @@ struct NotNeedCallBackEvent {
     void* ctx;
 };
 
-class Graphics : boost::noncopyable  {
+class Graphics  {
     public:
         Graphics(void*);
         ~Graphics();
@@ -29,7 +29,7 @@ class Graphics : boost::noncopyable  {
         void drawRectangle(int x0, int y0, int x1, int y1);
     private:
         class Impl;
-        Impl* impl;
+        boost::shared_ptr<Impl> impl;
 };
 
 #endif

@@ -84,7 +84,6 @@ Graphics::Graphics(void* ctx):impl(new Impl(ctx)) {
 }
 
 Graphics::~Graphics() {
-    delete impl;
 }
 
 void Graphics::setResultCallback(ResultCallback cb) {

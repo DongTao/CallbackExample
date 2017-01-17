@@ -3,6 +3,7 @@
 
 #include <string>
 #include <callback.h>
+#include <boost/shared_ptr.hpp>
 using namespace std;
 
 class Graphics {
@@ -18,7 +19,7 @@ class Graphics {
         void drawRectangle(int x0, int y0, int x1, int y1);
     private:
         class Impl;
-        Impl* impl;
+        boost::shared_ptr<Impl> impl;
 };
 
 void start_thread();

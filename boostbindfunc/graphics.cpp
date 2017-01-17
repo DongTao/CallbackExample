@@ -78,6 +78,7 @@ void Graphics::Impl::drawCircle(int x0, int y0, int r) {
 }
 
 Graphics::Graphics():impl(new Impl) {
+
 }
 
 Graphics::~Graphics() {

@@ -54,8 +54,8 @@ void Graphics::Impl::drawCircle(int x0, int y0, int r) {
     q.push(_callback);
 }
 
-Graphics::Graphics(CallbackBase* cb) {
-    impl = new Impl(cb);
+Graphics::Graphics(CallbackBase* cb):impl(new Impl(cb)) {
+
 }
 
 Graphics::~Graphics() {

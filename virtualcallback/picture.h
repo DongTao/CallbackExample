@@ -10,15 +10,13 @@ using namespace std;
 class Picture {
     public:
         Picture(const string& name):
-            _cb(new MyCallback(this)),_grs(new Graphics(_cb)),_name(name) {
+            _cb(this),_grs(&_cb),_name(name) {
         }
         ~Picture() {
-            delete _cb;
-            delete _grs;
         }
         void drawLollipop() {
-            _grs->drawCircle(0, 6, 3);
-            _grs->drawLine(0, 3, 0, 0);
+            _grs.drawCircle(0, 6, 3);
+            _grs.drawLine(0, 3, 0, 0);
         }
         void onCallbackResult() {
             cout << "Picture " << _name << " result call back" << endl;
@@ -28,8 +26,8 @@ class Picture {
         }
 
     private:
-        CallbackBase* _cb;
-        Graphics* _grs;
+        MyCallback _cb;
+        Graphics _grs;
         string _name;
 };
 

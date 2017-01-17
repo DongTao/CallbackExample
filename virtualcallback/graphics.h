@@ -1,6 +1,8 @@
 #ifndef _GRAPHICS_H_
 #define _GRAPHICS_H_
 
+#include <boost/shared_ptr.hpp>
+
 class CallbackBase {
     public:
         virtual void CallbackResult() = 0;
@@ -18,7 +20,7 @@ class Graphics {
         void drawRectangle(int x0, int y0, int x1, int y1);
     private:
         class Impl;
-        Impl* impl;
+        boost::shared_ptr<Impl> impl;
 };
 
 void start_thread();

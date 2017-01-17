@@ -2,12 +2,12 @@
 #include "picture.h"
 
 void MyCallback::CallbackResult() {
-    if (_pic) {
-        _pic->onCallbackResult();
+    if (pic_) {
+        pic_->onCallbackResult();
     }
 }
 void MyCallback::CallbackNotNeed() {
-    if (_pic) {
-        _pic->onCallbackNotNeed();
+    if (pic_) {
+        pic_->onCallbackNotNeed();
     }
 }

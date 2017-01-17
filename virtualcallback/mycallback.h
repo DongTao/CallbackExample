@@ -8,11 +8,11 @@ using namespace std;
 class Picture;
 class MyCallback : public CallbackBase {
     public:
-        MyCallback(Picture* pic):_pic(pic) {}
+        MyCallback(Picture* pic):pic_(pic) {}
         void CallbackResult();
         void CallbackNotNeed();
     private:
-        Picture* _pic;
+        Picture* pic_;
 };
 
 #endif
