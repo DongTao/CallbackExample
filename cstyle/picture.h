@@ -11,6 +11,7 @@ class Picture {
         Picture(string name):name_(name),handle_(CreateGraphicsHandler(reinterpret_cast<void*>(this))) {
             SetResultCallback(handle_, callbackPicture);
         }
+        //注册给C风格接口的回调函数需要为静态函数
         static void callbackPicture(void* ctx) {
             if (ctx == NULL) {
                 cout << "callback lost: ctx NULL!" << endl;
@@ -23,7 +24,7 @@ class Picture {
             DrawCircle(handle_, 0, 6, 3);
             DrawLine(handle_, 0, 3, 0, 0);
         }
-        // 该回调函数需要对外暴露，并不是一个好的实现
+        // 该回调函数需要对外暴露为public，并不是一个好的实现
         void onResultCallback() {
             cout << "Picture " << name_ << " result call back" << endl;
         }
